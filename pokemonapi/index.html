@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Pokémon</h1>
+        <form id="pokemonForm">
+            <label for="pokemonName">Nombre o Número del Pokémon:</label>
+            <input type="text" id="pokemonName" name="pokemonName" placeholder="Ej: Bulbasaur o 1" required>
+            <button type="submit">Buscar Pokémon</button>
+        </form>
+        
+        <div id="pokemonInfo" class="pokemon-info">
+            <!-- Aquí se mostrará la información del Pokémon -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
