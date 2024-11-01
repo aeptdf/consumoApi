@@ -8,7 +8,7 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         function onSubmit(token) {
-          document.getElementById("registro-usuario").submit();
+            document.getElementById("registro-usuario").submit();
         }
     </script>
 </head>
@@ -27,7 +27,9 @@
         <button class="g-recaptcha" 
         data-sitekey="6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG" 
         data-callback='onSubmit' 
-        data-action='submit'>Submit</button>
+        data-action='submit'>Registrarse</button>
     </form>
+
+    <p>¿Ya tienes una cuenta? <a href="loginUsuario.php">Inicia sesión aquí</a></p> <!-- Enlace al login -->
 </body>
 </html>

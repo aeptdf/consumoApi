@@ -5,8 +5,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; /* Cambiar la dirección a columna */
     height: 100vh;
     background-color: #f4f4f4;
+}
+
+h2 {
+    margin-bottom: 20px; /* Margen inferior para separar del formulario */
+    text-align: center; /* Centrar el título */
+    color: #333; /* Color del texto */
 }
 
 form {
@@ -15,14 +22,21 @@ form {
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    margin-bottom: 20px; /* Agregar margen inferior para separar del enlace */
 }
 
 input, button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 5px; /* Padding cambiado a 5px */
+    margin: 10px 0; /* Espaciado entre elementos del formulario */
     border: 1px solid #ccc;
     border-radius: 3px;
+    box-sizing: border-box; /* Asegurarse de que el padding se incluya en el tamaño total */
+}
+
+input:focus, button:focus {
+    border-color: #4CAF50; /* Cambiar el color del borde al enfocarse */
+    outline: none; /* Eliminar el contorno predeterminado */
 }
 
 button {
