@@ -1,35 +1,40 @@
+<?php
+session_start();
+$errorMessage = isset($_GET['message']) ? $_GET['message'] : '';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlace a tu archivo CSS -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
-        function onSubmit(token) {
-            document.getElementById("registro-usuario").submit();
+        // Función para mostrar el popup
+        function showPopup(message) {
+            alert(message);
         }
+
+        // Mostrar el mensaje de error o éxito si existe
+        window.onload = function() {
+            <?php if ($errorMessage): ?>
+                showPopup('<?php echo addslashes($errorMessage); ?>');
+            <?php endif; ?>
+        };
     </script>
 </head>
 <body>
     <h2>Registro de Usuario</h2>
-    <form id="registro-usuario" action="registroApi.php" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button class="g-recaptcha" 
-        data-sitekey="6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG" 
-        data-callback='onSubmit' 
-        data-action='submit'>Registrarse</button>
+    <form action="registroApi.php" method="POST">
+        <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+        <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+        <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
+        <button type="submit">Registrarse</button> <!-- Botón de registro -->
     </form>
 
-    <p>¿Ya tienes una cuenta? <a href="loginUsuario.php">Inicia sesión aquí</a></p> <!-- Enlace al login -->
+    <div class="login-links">
+        <p>¿Ya tienes una cuenta?<a href="loginUsuario.php" class="login-link">Inicia sesión aquí.</a></p>
+    </div>
 </body>
 </html>

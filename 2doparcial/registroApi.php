@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conexion.php'; // Archivo para la conexión a la base de datos
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,14 +15,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $token = bin2hex(random_bytes(50)); // Token único para verificación
     $estado_validacion = 1; // Estado "noVerificado" referenciado desde tu tabla "estados"
 
+    // Validación de la contraseña
+    if (strlen($password) < 8) {
+        header("Location: registroUsuario.php?message=La%20contraseña%20debe%20tener%20al%20menos%208%20caracteres.");
+        exit;
+    }
+
     // Verificar si el correo ya está registrado
     $sql = "SELECT * FROM usuarios WHERE email='$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // Mensaje de error
-        $message = "El correo ya está registrado.";
-        echo $message; // Enviar como texto plano
+        header("Location: registroUsuario.php?message=El%20correo%20ya%20está%20registrado.");
+        exit;
     } else {
         // Encriptar la contraseña
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -56,17 +63,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->send();
 
                 // Mensaje de éxito
-                echo "Usuario registrado con éxito. Revisa tu correo electrónico para validar la cuenta.";
+                header("Location: registroUsuario.php?message=Usuario%20registrado%20con%20éxito.%20Revisa%20tu%20correo%20electrónico%20para%20validar%20la%20cuenta.");
+                exit();
             } catch (Exception $e) {
                 // Mensaje de error en envío
-                echo "El mensaje no pudo ser enviado. Error: {$mail->ErrorInfo}";
+                header("Location: registroUsuario.php?message=El%20mensaje%20no%20pudo%20ser%20enviado.%20Error:%20{$mail->ErrorInfo}");
+                exit();
             }
         } else {
             // Mensaje de error en la consulta
-            echo "Error: " . $conn->error;
+            header("Location: registroUsuario.php?message=Error:%20" . $conn->error);
+            exit();
         }
     }
 } else {
-    echo "Faltan datos en la solicitud."; // Mensaje en texto plano
+    header("Location: registroUsuario.php?message=Faltan%20datos%20en%20la%20solicitud.");
+    exit();
 }
 ?>
