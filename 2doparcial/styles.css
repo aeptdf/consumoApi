@@ -49,3 +49,9 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.boton-desactivado {
+    background-color: #ccc; /* Color gris */
+    color: #666; /* Color del texto en gris */
+    cursor: not-allowed; /* Cambia el cursor para indicar que no se puede hacer clic */
+}

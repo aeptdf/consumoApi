@@ -5,12 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Restablecer Contraseña</title>
+    <script>
+        // Función para manejar el envío del formulario
+        function enviarRestablecimiento(event) {
+            event.preventDefault(); // Evita el envío del formulario de manera estándar
+
+            var formData = new FormData(event.target); // Recoge los datos del formulario
+            var botonEnviar = document.getElementById('boton-enviar'); // Obtiene el botón
+
+            botonEnviar.disabled = true; // Deshabilita el botón
+            botonEnviar.classList.add('boton-desactivado'); // Añade la clase para cambiar el estilo
+
+            fetch('restablecerApi.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text()) // Recibe la respuesta como texto
+            .then(data => {
+                // Muestra el mensaje de éxito o error en un popup
+                alert(data);
+            })
+            .catch(error => {
+                console.error('Error:', error); // Muestra un error en la consola
+            })
+            .finally(() => {
+                // Esto se ejecuta siempre, independientemente del resultado
+                botonEnviar.disabled = false; // Rehabilita el botón
+                botonEnviar.classList.remove('boton-desactivado'); // Remueve la clase para volver al estilo original
+            });
+        }
+    </script>
 </head>
 <body>
     <h2>Restablecer Contraseña</h2>
-    <form action="restablecerApi.php" method="POST">
+    <form onsubmit="enviarRestablecimiento(event)">
         <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
-        <button type="submit">Enviar enlace para restablecer</button>    
+        <button type="submit" id="boton-enviar">Enviar enlace para restablecer</button>    
     </form>
     <a href="loginUsuario.php" class="login-link">Volver a iniciar sesión</a> 
 </body>
