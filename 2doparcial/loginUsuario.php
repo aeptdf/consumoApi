@@ -17,6 +17,7 @@ if (isset($_GET['status']) && $_GET['status'] === 'success') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG"></script>
     <title>Iniciar Sesión</title>
     <script>
         // Función para mostrar el popup
@@ -32,6 +33,16 @@ if (isset($_GET['status']) && $_GET['status'] === 'success') {
                 showPopup('<?php echo addslashes($successMessage); ?>');
             <?php endif; ?>
         };
+    </script>
+        <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
     </script>
 </head>
 <body>

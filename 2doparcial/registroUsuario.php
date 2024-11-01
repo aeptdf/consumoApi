@@ -23,6 +23,17 @@ $errorMessage = isset($_GET['message']) ? $_GET['message'] : '';
             <?php endif; ?>
         };
     </script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG"></script>
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Le4Z2wqAAAAAMxTkOJWkBA9D7KmVIC_XSUqIpaG', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+    </script>
 </head>
 <body>
     <h2>Registro de Usuario</h2>
