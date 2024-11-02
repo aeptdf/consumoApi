@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2024 a las 22:49:47
+-- Tiempo de generación: 02-11-2024 a las 02:28:25
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -62,8 +62,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `nombre`, `email`, `password`, `estado_validacion`, `token`, `fecha_creacion`, `fecha_modificacion`) VALUES
-(5, 'Ariel', 'arieltdf11@gmail.com', '$2y$10$kTsSEeTJgUNpgQL1lmfeweaweowAfaHVslTubp0l8WThIoDCw6a1q', 1, '293aa189be478284274790b0224ddd0f5ffaa5c625636e5bb631ea7b81701a656a90c7ecfbce7ddd52af03a3ece6a73c1dd4', '2024-11-01 17:52:11', NULL),
-(31, 'Ariel', 'arielplante02@gmail.com', '$2y$10$ps28iKeugec/Gv46DjGx0OvTYuXp4BI0Mh9neqjVh8Yra4PJUdKzi', 2, '69550d00343d59f3ccfb9c59eea5718530903c532282b552567959692dba5c776acd69687529fae5d37fb5194cd981762ac7', '2024-11-01 20:52:11', '2024-11-01 18:37:49');
+(31, 'Ariel', 'arielplante02@gmail.com', '$2y$10$OcasTtSZR9tXTUfzUA.xhu1EnmUvEm9SZz00fWaX4hsnzlnN0Ozv.', 2, '0c0f92bd0eac9eb48c7d36caf2114fdee9bff98dac66398dbda62cac830fbec937dd459e5f288eb12632d97254215669d69e', '2024-11-01 20:52:11', '2024-11-01 22:07:34'),
+(33, 'cosocoso', 'felef63048@ruhtan.com', '$2y$10$1ZYJkjcXE4YOAJMo.C3gDuSgxdILxk0NiViNnetZSlW35.85LW5eG', 2, 'aa0a135278c85bca9c0eb34e95513ffa0aee1e2291eaf8a38194fe0e513ce40f9e1e2d5f14cc2ab334eff7fcf0990bfe0502', '2024-11-01 23:46:59', '2024-11-01 20:47:58'),
+(36, 'Juan', 'arieltdf11@gmail.com', '$2y$10$tuoSDEjjUOh.BbB3gmnnVet4gfShfOiwZqxJqzN2UJHtyywQqINe2', 2, '3fe5c0c66c1069c13813131c89a4d586bac6d27d0ff181eea620c1c74626176dcb66e78b625db47a45cdf9f6b443c139cd25', '2024-11-02 00:32:24', '2024-11-01 21:34:15'),
+(37, 'Isma', 'ismchaves03@gmail.com', '$2y$10$DdBuOVR8XOHXIoRlIJhf4.zmGtuG.Jb0X6ZU4y31V.cgXTBfa6gxm', 1, 'f319aacfcfb0cb67d7571d9fcdb765e9b8c77b64f0e4c98f4f3cc0b32338108351a4f8fcd7bbf93e423d7175bcce98da7a88', '2024-11-02 01:00:38', NULL),
+(38, 'anana', 'adan_cerdatafoya346@curyx.org', '$2y$10$t4R07MAr9j6RiQY98PhJZ.pAw0iXCl0p7buFZhlKM0sGdvKguLzUm', 2, '19f40d3fad671ab51aa30d83d2bb94350beb5d4faf857781a4b62bcd3fe810da3601a611376536142bb017a684d1ddbb9c76', '2024-11-02 01:03:13', '2024-11-01 22:05:33'),
+(39, 'nikkk', 'niknebarta@gufum.com', '$2y$10$GdQb.1CvQAXwDbBlbEqzU.kN1futkrJwHLwX9mMswUHpR02PIOrWa', 2, '3c220c769525cbc47d18db2a7aab533fd8f48f45ce5382c3f447a11883940639c2c0c4991a29d002ba09bd5fefa9925c0426', '2024-11-02 01:13:28', '2024-11-01 22:14:59');
 
 --
 -- Índices para tablas volcadas
@@ -98,7 +102,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas
