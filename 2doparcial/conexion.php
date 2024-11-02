@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "Ariel";
+$password = "ivIqnedv@pcil_SC";
 $dbname = "gestion_usuarios";
 
 // Crear conexión
